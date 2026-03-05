@@ -64,16 +64,9 @@
       align-items: center;
       gap: 12px;
     }
-    .logo-icon {
-      width: 44px;
+    .logo img {
       height: 44px;
-      background: var(--navy);
-      border-radius: 8px;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      color: var(--orange);
-      font-size: 1.4rem;
+      width: auto;
     }
     .logo-text h1 {
       font-size: 1.2rem;
@@ -219,6 +212,35 @@
       color: var(--navy);
     }
     .trust-item .icon { font-size: 1.3rem; }
+    .trust-item img {
+      height: 28px;
+      width: auto;
+    }
+
+    /* ── VAN PHOTO STRIP ── */
+    .van-strip {
+      width: 100%;
+      max-height: 340px;
+      overflow: hidden;
+      position: relative;
+    }
+    .van-strip img {
+      width: 100%;
+      object-fit: cover;
+      object-position: center 40%;
+      display: block;
+    }
+    .van-strip-overlay {
+      position: absolute;
+      bottom: 0;
+      left: 0;
+      right: 0;
+      background: linear-gradient(to top, rgba(26,44,78,0.7) 0%, transparent 100%);
+      padding: 24px;
+      color: white;
+      font-size: 0.9rem;
+      font-weight: 600;
+    }
 
     /* ── SERVICES ── */
     .section { padding: 72px 24px; max-width: 1100px; margin: 0 auto; }
@@ -288,7 +310,7 @@
       padding: 80px 24px;
     }
     .story-inner {
-      max-width: 900px;
+      max-width: 960px;
       margin: 0 auto;
       display: grid;
       grid-template-columns: 1fr 1fr;
@@ -311,62 +333,207 @@
       margin-bottom: 16px;
       font-size: 1rem;
     }
+    .founder-photo-wrap {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      gap: 20px;
+    }
+    .founder-photo {
+      border-radius: 12px;
+      overflow: hidden;
+      border: 3px solid rgba(230,126,34,0.4);
+      max-width: 220px;
+    }
+    .founder-photo img {
+      width: 100%;
+      display: block;
+    }
+    .founder-caption {
+      text-align: center;
+      font-size: 0.85rem;
+      opacity: 0.7;
+      line-height: 1.4;
+    }
+    .founder-caption strong {
+      display: block;
+      font-size: 1rem;
+      opacity: 1;
+      color: var(--orange);
+      margin-bottom: 4px;
+    }
     .story-stats {
-      display: grid;
-      grid-template-columns: 1fr 1fr;
-      gap: 24px;
+      display: flex;
+      flex-direction: column;
+      gap: 16px;
+      margin-top: 24px;
+    }
+    .stat-row {
+      display: flex;
+      gap: 16px;
     }
     .stat-box {
       background: rgba(255,255,255,0.06);
       border: 1px solid rgba(255,255,255,0.12);
       border-radius: 10px;
-      padding: 24px;
+      padding: 20px;
       text-align: center;
+      flex: 1;
     }
     .stat-box .number {
-      font-size: 2.2rem;
+      font-size: 2rem;
       font-weight: 900;
       color: var(--orange);
       display: block;
     }
     .stat-box .label {
-      font-size: 0.8rem;
+      font-size: 0.75rem;
       opacity: 0.7;
       text-transform: uppercase;
       letter-spacing: 1px;
       margin-top: 4px;
     }
 
-    /* ── TESTIMONIALS ── */
-    .testimonials { background: var(--light); padding: 72px 24px; }
-    .testimonials-inner { max-width: 1100px; margin: 0 auto; }
-    .reviews-grid {
-      display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
-      gap: 24px;
+    /* ── GUARANTEE ── */
+    .guarantee-section {
+      background: var(--light);
+      padding: 64px 24px;
     }
-    .review-card {
+    .guarantee-inner {
+      max-width: 960px;
+      margin: 0 auto;
+    }
+    .guarantee-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+      gap: 24px;
+      margin-top: 40px;
+    }
+    .guarantee-card {
       background: white;
       border-radius: 12px;
       padding: 28px;
-      box-shadow: 0 2px 12px rgba(0,0,0,0.06);
+      box-shadow: 0 2px 8px rgba(0,0,0,0.05);
+      border-left: 4px solid var(--orange);
     }
-    .stars { color: #f59e0b; font-size: 1.1rem; margin-bottom: 12px; }
-    .review-card p {
-      color: var(--dark);
-      font-size: 0.95rem;
-      margin-bottom: 16px;
-      font-style: italic;
-    }
-    .reviewer {
-      font-weight: 700;
-      font-size: 0.875rem;
+    .guarantee-card h3 {
+      font-size: 1rem;
+      font-weight: 800;
       color: var(--navy);
+      margin-bottom: 10px;
     }
-    .reviewer span {
-      font-weight: 400;
+    .guarantee-card p {
       color: var(--gray);
+      font-size: 0.9rem;
     }
+
+    /* ── CERTIFICATIONS ── */
+    .certs-section {
+      background: white;
+      padding: 48px 24px;
+      border-top: 1px solid #e5e7eb;
+      border-bottom: 1px solid #e5e7eb;
+    }
+    .certs-inner {
+      max-width: 900px;
+      margin: 0 auto;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      flex-wrap: wrap;
+      gap: 48px;
+    }
+    .cert-item {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      gap: 10px;
+      text-align: center;
+    }
+    .cert-item img {
+      height: 56px;
+      width: auto;
+      object-fit: contain;
+    }
+    .cert-item span {
+      font-size: 0.78rem;
+      font-weight: 700;
+      color: var(--gray);
+      text-transform: uppercase;
+      letter-spacing: 0.5px;
+    }
+    .cert-divider {
+      width: 1px;
+      height: 48px;
+      background: #e5e7eb;
+    }
+
+    /* ── REVIEWS LINK SECTION ── */
+    .reviews-section {
+      background: var(--light);
+      padding: 72px 24px;
+      text-align: center;
+    }
+    .reviews-inner {
+      max-width: 680px;
+      margin: 0 auto;
+    }
+    .review-highlight {
+      background: white;
+      border-radius: 12px;
+      padding: 36px;
+      box-shadow: 0 2px 12px rgba(0,0,0,0.07);
+      margin: 32px 0;
+      text-align: left;
+    }
+    .review-highlight .stars {
+      color: #f59e0b;
+      font-size: 1.2rem;
+      margin-bottom: 14px;
+    }
+    .review-highlight p {
+      color: var(--dark);
+      font-size: 1rem;
+      font-style: italic;
+      line-height: 1.7;
+      margin-bottom: 16px;
+    }
+    .review-source {
+      font-size: 0.8rem;
+      color: var(--gray);
+      font-weight: 600;
+    }
+    .review-links {
+      display: flex;
+      gap: 16px;
+      justify-content: center;
+      flex-wrap: wrap;
+      margin-top: 28px;
+    }
+    .btn-review-link {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      padding: 12px 24px;
+      border-radius: 8px;
+      font-weight: 700;
+      font-size: 0.9rem;
+      text-decoration: none;
+      border: 2px solid;
+      transition: all 0.2s;
+    }
+    .btn-yelp {
+      color: #d32323;
+      border-color: #d32323;
+      background: white;
+    }
+    .btn-yelp:hover { background: #d32323; color: white; }
+    .btn-bbb {
+      color: #0033a0;
+      border-color: #0033a0;
+      background: white;
+    }
+    .btn-bbb:hover { background: #0033a0; color: white; }
 
     /* ── CTA SECTION ── */
     .cta-section {
@@ -383,7 +550,7 @@
     .cta-section p {
       font-size: 1.1rem;
       opacity: 0.9;
-      max-width: 500px;
+      max-width: 520px;
       margin: 0 auto 32px;
     }
     .cta-buttons {
@@ -392,6 +559,16 @@
       justify-content: center;
       flex-wrap: wrap;
     }
+    .cta-detail {
+      display: flex;
+      gap: 32px;
+      justify-content: center;
+      flex-wrap: wrap;
+      margin-top: 28px;
+      font-size: 0.875rem;
+      opacity: 0.85;
+    }
+    .cta-detail span::before { content: "✓ "; font-weight: 900; }
     .btn-white {
       background: white;
       color: var(--red);
@@ -433,15 +610,17 @@
     @media (max-width: 700px) {
       .footer-inner { grid-template-columns: 1fr; gap: 32px; }
     }
-    .footer-brand h3 {
-      font-size: 1.1rem;
-      font-weight: 800;
-      margin-bottom: 8px;
-    }
     .footer-brand p {
       opacity: 0.65;
       font-size: 0.875rem;
       line-height: 1.7;
+      margin-top: 12px;
+    }
+    .footer-logo img {
+      height: 40px;
+      width: auto;
+      filter: brightness(0) invert(1);
+      opacity: 0.9;
     }
     footer h4 {
       font-size: 0.8rem;
@@ -460,6 +639,10 @@
       transition: color 0.2s;
     }
     footer ul li a:hover { color: white; }
+    footer ul li span {
+      color: rgba(255,255,255,0.65);
+      font-size: 0.9rem;
+    }
     .footer-bottom {
       max-width: 1100px;
       margin: 0 auto;
@@ -472,7 +655,13 @@
       gap: 12px;
     }
     .footer-bottom p { opacity: 0.5; font-size: 0.8rem; }
-    .bryant-badge {
+    .footer-badges {
+      display: flex;
+      gap: 12px;
+      align-items: center;
+      flex-wrap: wrap;
+    }
+    .badge {
       background: rgba(255,255,255,0.08);
       border: 1px solid rgba(255,255,255,0.15);
       padding: 6px 14px;
@@ -481,22 +670,38 @@
       font-weight: 700;
       letter-spacing: 0.5px;
     }
+    .social-links {
+      display: flex;
+      gap: 12px;
+      margin-top: 16px;
+    }
+    .social-links a {
+      color: rgba(255,255,255,0.6);
+      text-decoration: none;
+      font-size: 0.85rem;
+      transition: color 0.2s;
+    }
+    .social-links a:hover { color: white; }
   </style>
 </head>
 <body>
 
   <!-- TOP BAR -->
+  <!-- Source: heatcool.net — phone confirmed, address confirmed, "Since 1956" confirmed -->
   <div class="topbar">
-    <span>📍 Serving Chicago & Surrounding Areas Since 1956</span>
-    <a href="tel:7735395225">📞 (773) 539-5225 — 24/7 Emergency Service</a>
+    <span>📍 4511 N Kedzie Ave, Chicago, IL 60625 · Family Owned Since 1956</span>
+    <a href="tel:7735395225">📞 (773) 539-5225</a>
   </div>
 
   <!-- NAV -->
   <nav>
     <div class="logo">
-      <div class="logo-icon">🔥</div>
+      <!-- Source: heatcool.net/wp-content/uploads/2017/03/heatcoollogo.png — real logo -->
+      <img src="images/heatcool-logo-old.png" alt="HeatCool Service Co logo" onerror="this.style.display='none'; this.nextElementSibling.style.display='flex'">
+      <div class="logo-icon" style="display:none; width:44px; height:44px; background:var(--navy); border-radius:8px; align-items:center; justify-content:center; color:var(--orange); font-size:1.4rem;">🔥</div>
       <div class="logo-text">
         <h1>HeatCool Service Co.</h1>
+        <!-- Source: heatcool.net history page — confirmed 1956 founding -->
         <p>Family Owned · Since 1956</p>
       </div>
     </div>
@@ -509,127 +714,257 @@
   </nav>
 
   <!-- EMERGENCY BANNER -->
+  <!-- Source: heatcool.net/heating-repair/ — "emergency service 24/7 and 365 days a year" confirmed -->
   <div class="emergency-banner">
-    🚨 Furnace or AC emergency? We pick up 24/7. <a href="tel:7735395225">Call (773) 539-5225 now →</a>
+    🚨 Heating or AC emergency? Emergency service available 24/7, 365 days a year. <a href="tel:7735395225">Call (773) 539-5225 →</a>
   </div>
 
   <!-- HERO -->
+  <!-- Source: heatcool.net homepage — Bryant Factory Authorized Dealer confirmed; "Since 1956" confirmed; NATE-certified confirmed -->
   <section class="hero">
     <div class="hero-badge">Bryant Factory Authorized Dealer</div>
-    <h2>Chicago's <span>Most Trusted</span> Heating & Cooling Specialists</h2>
-    <p>Three generations of family ownership. 70 years keeping Chicago homes comfortable. When you call us, you're calling Chicago — not a call center.</p>
+    <h2>Chicago's Trusted <span>Heating & Cooling</span> Specialists</h2>
+    <p>Family-owned and operated since 1956. NATE-certified technicians. Bryant Factory Authorized. Serving residential and light commercial customers throughout Chicago.</p>
     <div class="hero-buttons">
-      <a href="tel:7735395225" class="btn-primary">📞 Call Now — We Answer 24/7</a>
-      <a href="#contact" class="btn-secondary">Schedule Service Online →</a>
+      <a href="tel:7735395225" class="btn-primary">📞 Call (773) 539-5225</a>
+      <a href="https://www.heatcool.net/contact-us/" target="_blank" rel="noopener" class="btn-secondary">Contact Us Online →</a>
     </div>
   </section>
 
   <!-- TRUST STRIP -->
+  <!-- Sources: BBB profile (A+ rating, BBB Accredited), heatcool.net (Bryant, NATE, family-owned, 1956) -->
   <div class="trust-strip">
-    <div class="trust-item"><span class="icon">🏠</span> Family Owned & Operated</div>
+    <div class="trust-item"><span class="icon">🏠</span> Family Owned &amp; Operated</div>
     <div class="trust-item"><span class="icon">📅</span> Serving Chicago Since 1956</div>
-    <div class="trust-item"><span class="icon">🏆</span> Bryant Factory Authorized</div>
-    <div class="trust-item"><span class="icon">🔧</span> Licensed & Insured</div>
-    <div class="trust-item"><span class="icon">⚡</span> Same-Day Service Available</div>
+    <div class="trust-item">
+      <!-- Source: heatcool.net homepage and heating-repair page — Bryant Factory Authorized confirmed -->
+      <img src="images/bryant-logo.png" alt="Bryant Factory Authorized Dealer" onerror="this.outerHTML='<span class=\'icon\'>🏆</span>'">
+      Bryant Factory Authorized
+    </div>
+    <div class="trust-item">
+      <!-- Source: heatcool.net homepage — NATE-certified confirmed -->
+      <img src="images/nate-logo.png" alt="NATE Certified" onerror="this.outerHTML='<span class=\'icon\'>🔧</span>'">
+      NATE-Certified Technicians
+    </div>
+    <div class="trust-item"><span class="icon">⭐</span> BBB Accredited · A+ Rating</div>
+  </div>
+
+  <!-- VAN PHOTO -->
+  <!-- Source: Downloaded from heatcool.net — real company van photo -->
+  <div class="van-strip">
+    <img src="images/heatcool-van.jpg" alt="HeatCool Service Co van in Chicago" onerror="this.parentElement.style.display='none'">
+    <div class="van-strip-overlay">HeatCool Service Co · 4511 N Kedzie Ave, Chicago, IL 60625</div>
   </div>
 
   <!-- SERVICES -->
+  <!-- Source: heatcool.net contact page navigation — full service list confirmed -->
   <section id="services">
     <div class="section">
       <p class="section-label">What We Do</p>
-      <h2 class="section-title">Complete Heating & Cooling Services</h2>
+      <h2 class="section-title">Complete Heating &amp; Cooling Services</h2>
       <div class="services-grid">
+
         <div class="service-card">
+          <!-- Source: heatcool.net/heating-repair/ -->
           <span class="service-icon">🔥</span>
-          <h3>Heating</h3>
-          <p>Furnace repair, installation, and maintenance. We work on all makes and models — and we stock common parts so most repairs happen same day.</p>
-          <a href="#contact">Get Heating Help →</a>
+          <h3>Heating Repair</h3>
+          <p>Furnace repair, service, and installation. In business since 1956, our NATE-certified technicians handle any system — any age, any brand.</p>
+          <a href="https://www.heatcool.net/heating-repair/" target="_blank" rel="noopener">Learn More →</a>
         </div>
+
         <div class="service-card">
+          <!-- Source: heatcool.net/air-conditioning-repair/ -->
           <span class="service-icon">❄️</span>
-          <h3>Cooling</h3>
-          <p>Central AC repair and installation. From a unit that's not cooling to a full system replacement — we handle it all with upfront pricing.</p>
-          <a href="#contact">Get Cooling Help →</a>
+          <h3>Air Conditioning Repair</h3>
+          <p>Swift, affordable AC repair. Our technicians are NATE and EPA certified. We work to complete every project in one visit and restore comfort within 24 hours.</p>
+          <a href="https://www.heatcool.net/air-conditioning-repair/" target="_blank" rel="noopener">Learn More →</a>
         </div>
+
         <div class="service-card">
+          <!-- Source: heatcool.net contact page navigation -->
+          <span class="service-icon">🏢</span>
+          <h3>High Rise &amp; Condo HVAC</h3>
+          <p>Specialists in through-the-wall heating and AC, Magic-Pak systems, PTAC units, and high rise condo building HVAC service.</p>
+          <a href="https://www.heatcool.net/high-rise-hvac-service/" target="_blank" rel="noopener">Learn More →</a>
+        </div>
+
+        <div class="service-card">
+          <!-- Source: heatcool.net/boilers/ listed in nav; BBB service list -->
+          <span class="service-icon">⚙️</span>
+          <h3>Boilers &amp; Heat Pumps</h3>
+          <p>Gas and oil fired boilers, heat pumps, electric heat, ductless AC, and chiller systems — installed and serviced by factory-trained technicians.</p>
+          <a href="https://www.heatcool.net/boilers/" target="_blank" rel="noopener">Learn More →</a>
+        </div>
+
+        <div class="service-card">
+          <!-- Source: heatcool.net/service-agreement/ — "Service Club" confirmed -->
           <span class="service-icon">🛡️</span>
-          <h3>Maintenance Plans</h3>
-          <p>Annual tune-ups keep your system running efficiently and your bills low. Plan members get priority scheduling and discounted repairs.</p>
-          <a href="#contact">See Maintenance Plans →</a>
+          <h3>Service Club (Maintenance)</h3>
+          <p>Join our prepaid maintenance program. We'll remind you when it's time to schedule. Members get discounts on repairs and no processing fees on credit cards.</p>
+          <a href="https://www.heatcool.net/service-agreement/" target="_blank" rel="noopener">Learn More →</a>
         </div>
+
         <div class="service-card">
+          <!-- Source: heatcool.net homepage — Bryant financing mentioned -->
           <span class="service-icon">💳</span>
           <h3>Financing Available</h3>
-          <p>New system? Don't let cost stand in the way of your family's comfort. Flexible financing options available — ask us for details.</p>
-          <a href="#contact">Learn About Financing →</a>
+          <p>Bryant® credit card financing available. Buy now and pay over time with convenient monthly payments. Quick credit decision and easy online account management.</p>
+          <a href="https://www.heatcool.net/financing/" target="_blank" rel="noopener">Learn More →</a>
         </div>
+
       </div>
     </div>
   </section>
 
-  <!-- STORY -->
+  <!-- CERTIFICATIONS ROW -->
+  <!-- Source: heatcool.net — all certifications confirmed from site copy -->
+  <div class="certs-section">
+    <div class="certs-inner">
+      <div class="cert-item">
+        <img src="images/bryant-logo.png" alt="Bryant Factory Authorized Dealer" onerror="this.outerHTML='<span style=\'font-size:2rem\'>🏆</span>'">
+        <span>Bryant Factory<br>Authorized Dealer</span>
+      </div>
+      <div class="cert-divider"></div>
+      <div class="cert-item">
+        <img src="images/nate-logo.png" alt="NATE Certified" onerror="this.outerHTML='<span style=\'font-size:2rem\'>🔧</span>'">
+        <span>NATE-Certified<br>Technicians</span>
+      </div>
+      <div class="cert-divider"></div>
+      <div class="cert-item">
+        <span style="font-size:2rem">✅</span>
+        <span>BBB Accredited<br>A+ Rating</span>
+      </div>
+      <div class="cert-divider"></div>
+      <div class="cert-item">
+        <span style="font-size:2rem">🌿</span>
+        <span>EPA Certified<br>Technicians</span>
+      </div>
+    </div>
+  </div>
+
+  <!-- STORY / HISTORY -->
+  <!-- Source: heatcool.net/history/ — Robert Freson, founded 1956, Korean War Veteran, John Freson (BBB President) all confirmed -->
   <section class="story-section" id="story">
     <div class="story-inner">
       <div class="story-content">
-        <p class="section-label">Our Story</p>
-        <h2>Three Generations.<br><span>One Family. One Promise.</span></h2>
-        <p>When HeatCool Service Co. was founded in 1956, Chicago was a different city. But one thing hasn't changed: a Chicago family's heating and cooling needs to work — especially in February.</p>
-        <p>We've kept that promise for 70 years. No call centers. No contractors you've never met. When you call us, you get us — the same family that's been answering this phone since Eisenhower was president.</p>
-        <p>As a Bryant Factory Authorized Dealer, we install and service the equipment we'd put in our own homes. That's not a slogan. That's how we've stayed in business for seven decades.</p>
+        <p class="section-label">Our History</p>
+        <h2>Founded in 1956.<br><span>Family Owned Ever Since.</span></h2>
+        <p>Robert Freson — U.S. Army Veteran of the Korean War — established HeatCool Service Co in 1956 on a simple premise: there are few things more frustrating than being uncomfortable in your own home.</p>
+        <p>Throughout our history, HeatCool has remained a premier, family-owned and operated heating and cooling company. We serve residential and light commercial customers with the highest level of reliability — both in the Bryant products we offer and the service we provide.</p>
+        <p>Robert was dedicated to honesty, integrity, and thoroughness. He ensured every team member upheld those values — which is why many of our original clients, and now their children, continue to rely on HeatCool for comfort and security.</p>
+        <div class="story-stats">
+          <div class="stat-row">
+            <!-- Source: BBB profile — "Years in Business: 70" confirmed; Business Started 3/15/1956 -->
+            <div class="stat-box">
+              <span class="number">70+</span>
+              <span class="label">Years in Business</span>
+            </div>
+            <!-- Source: heatcool.net/heating-repair/ — "emergency service 24/7 and 365 days a year" confirmed -->
+            <div class="stat-box">
+              <span class="number">24/7</span>
+              <span class="label">Emergency Service</span>
+            </div>
+          </div>
+          <div class="stat-row">
+            <!-- Source: BBB profile — "BBB Accredited Since: 7/1/2006" confirmed -->
+            <div class="stat-box">
+              <span class="number">A+</span>
+              <span class="label">BBB Rating</span>
+            </div>
+            <!-- Source: heatcool.net — explicitly confirmed; BBB profile also confirms family-owned -->
+            <div class="stat-box">
+              <span class="number">100%</span>
+              <span class="label">Family Owned</span>
+            </div>
+          </div>
+        </div>
       </div>
-      <div class="story-stats">
-        <div class="stat-box">
-          <span class="number">70+</span>
-          <span class="label">Years Serving Chicago</span>
+
+      <!-- Source: heatcool.net/history/ — photo of Robert Freson confirmed on that page -->
+      <div class="founder-photo-wrap">
+        <div class="founder-photo">
+          <img src="images/freson-founder.jpg" alt="Robert Freson, Founder of HeatCool Service Co" onerror="this.parentElement.style.background='rgba(255,255,255,0.1)'; this.style.display='none'">
         </div>
-        <div class="stat-box">
-          <span class="number">3</span>
-          <span class="label">Generations of Family</span>
+        <div class="founder-caption">
+          <strong>Robert Freson</strong>
+          Founder, HeatCool Service Co.<br>
+          October 6, 1931 – August 17, 2020<br>
+          U.S. Army · Korean War Veteran
         </div>
-        <div class="stat-box">
-          <span class="number">24/7</span>
-          <span class="label">Emergency Service</span>
+      </div>
+
+    </div>
+  </section>
+
+  <!-- GUARANTEES -->
+  <!-- Source: heatcool.net/air-conditioning-repair/ — Comfort Promise and Factory Authorized Parts guarantee confirmed -->
+  <section class="guarantee-section">
+    <div class="guarantee-inner">
+      <p class="section-label" style="text-align:center">Our Commitment</p>
+      <h2 class="section-title">The Comfort Promise</h2>
+      <div class="guarantee-grid">
+        <div class="guarantee-card">
+          <h3>Satisfaction Guaranteed</h3>
+          <p>Through the "Comfort Promise," HeatCool guarantees our installation, maintenance, and repair work, as well as installed Bryant systems, meet your approval. If you're not satisfied, we resolve the issue at no cost to you.</p>
         </div>
-        <div class="stat-box">
-          <span class="number">100%</span>
-          <span class="label">Family Owned</span>
+        <div class="guarantee-card">
+          <h3>Factory Authorized Parts</h3>
+          <p>We use Factory Authorized Parts whenever possible, achieving the manufacturer's expectations for operational noise, dependability, and humidity control.</p>
+        </div>
+        <div class="guarantee-card">
+          <h3>Two-Year Parts Guarantee</h3>
+          <p>Any problems with Bryant Factory Authorized parts within two years of installation will be replaced at no charge. If the service wasn't satisfactory, we'll fix it or refund the cost.</p>
+        </div>
+        <div class="guarantee-card">
+          <h3>Respect for Your Home</h3>
+          <p>Our technicians are background checked and drug-screened. They protect your property from mess and damage, and reclaim and recycle old equipment, packaging, and refrigerant.</p>
         </div>
       </div>
     </div>
   </section>
 
-  <!-- TESTIMONIALS -->
-  <section class="testimonials" id="reviews">
-    <div class="testimonials-inner">
+  <!-- REVIEWS -->
+  <!-- Source: heatcool.net/reviews/ — one real testimonial confirmed; Yelp listing (54 reviews) confirmed -->
+  <section class="reviews-section" id="reviews">
+    <div class="reviews-inner">
       <p class="section-label">What Customers Say</p>
-      <h2 class="section-title">Chicago Families Trust HeatCool</h2>
-      <div class="reviews-grid">
-        <div class="review-card">
-          <div class="stars">★★★★★</div>
-          <p>"Our furnace went out at 9pm in January. HeatCool had someone at our door within two hours. Fixed it the same night. These are the people you want when it really matters."</p>
-          <div class="reviewer">Maria T. <span>— Albany Park</span></div>
-        </div>
-        <div class="review-card">
-          <div class="stars">★★★★★</div>
-          <p>"Been using HeatCool for 15 years. They still feel like a family business — because they are. Fair prices, honest assessments, no upselling. Rare to find that anymore."</p>
-          <div class="reviewer">James K. <span>— North Center</span></div>
-        </div>
-        <div class="review-card">
-          <div class="stars">★★★★★</div>
-          <p>"New AC installed last summer. The crew was professional, cleaned up completely, and walked me through everything before they left. First time I've actually understood my HVAC system."</p>
-          <div class="reviewer">Sandra L. <span>— Ravenswood</span></div>
-        </div>
+      <h2 class="section-title">Real Reviews from Real Customers</h2>
+
+      <!-- Source: heatcool.net/reviews/ — verbatim from their website's reviews page -->
+      <div class="review-highlight">
+        <div class="stars">★★★★★</div>
+        <p>"I purchased my Chicago condo in 2008. My HVAC unit was at the end of its life at that point, and the building manager recommended only two companies to perform work on the building's HVAC system. One of those companies was HEATCOOL, whom I called, and I've never felt a need since that first call to switch to any other company. Everyone at HEATCOOL has always been professional, knowledgeable, sympathetic and very helpful every time I've called or emailed them, especially John and Valerie. I would recommend HeatCool to anyone."</p>
+        <div class="review-source">— From HeatCool's reviews page · heatcool.net/reviews/</div>
+      </div>
+
+      <p style="color: var(--gray); margin-bottom: 8px; font-size: 0.95rem;">HeatCool has 54 reviews on Yelp. Read more from verified customers:</p>
+
+      <div class="review-links">
+        <!-- Source: Yelp link from heatcool.net footer; 54 reviews confirmed via web search -->
+        <a href="https://www.yelp.com/biz/heatcool-service-chicago" target="_blank" rel="noopener" class="btn-review-link btn-yelp">
+          ⭐ Read Reviews on Yelp (54 reviews)
+        </a>
+        <!-- Source: BBB profile confirmed — A+ rating, accredited since 2006 -->
+        <a href="https://www.bbb.org/us/il/chicago/profile/heating-and-air-conditioning/heatcool-service-co-0654-72000443" target="_blank" rel="noopener" class="btn-review-link btn-bbb">
+          ✅ BBB Profile · A+ Rated
+        </a>
       </div>
     </div>
   </section>
 
   <!-- CTA -->
+  <!-- Source: heatcool.net — phone, email, address all confirmed; hours from BBB profile -->
   <section class="cta-section" id="contact">
     <h2>Ready to Schedule Service?</h2>
-    <p>Call us directly or request a callback. We pick up — 24 hours a day, 7 days a week.</p>
+    <p>Call us or contact us online. Emergency service is available 24/7, 365 days a year. Regular business hours: Monday–Friday, 7:00 AM – 5:00 PM.</p>
     <div class="cta-buttons">
       <a href="tel:7735395225" class="btn-white">📞 Call (773) 539-5225</a>
-      <a href="mailto:info@heatcool.net" class="btn-outline-white">✉️ Send Us a Message</a>
+      <a href="https://www.heatcool.net/contact-us/" target="_blank" rel="noopener" class="btn-outline-white">✉️ Contact Us Online →</a>
+    </div>
+    <div class="cta-detail">
+      <span>Emergency Service 24/7, 365 Days</span>
+      <span>Mon–Fri: 7:00 AM – 5:00 PM</span>
+      <span>4511 N Kedzie Ave, Chicago, IL 60625</span>
     </div>
   </section>
 
@@ -637,32 +972,53 @@
   <footer>
     <div class="footer-inner">
       <div class="footer-brand">
-        <h3>HeatCool Service Co.</h3>
-        <p>Family-owned heating and cooling specialists serving Chicago and surrounding neighborhoods since 1956. Bryant Factory Authorized Dealer. Licensed and insured.</p>
+        <!-- Source: heatcool.net — real logo confirmed -->
+        <div class="footer-logo">
+          <img src="images/heatcool-logo-old.png" alt="HeatCool Service Co" onerror="this.outerHTML='<span style=\'color:white; font-weight:800; font-size:1.1rem;\'>HeatCool Service Co.</span>'">
+        </div>
+        <!-- Source: heatcool.net/history/ and BBB profile — all facts confirmed -->
+        <p>Family-owned heating and cooling specialists serving Chicago since 1956. Bryant Factory Authorized Dealer. NATE-certified technicians. BBB Accredited, A+ Rating. Licensed in Chicago and the state of Illinois.</p>
+        <!-- Source: BBB profile — Facebook and Twitter confirmed -->
+        <div class="social-links">
+          <a href="https://www.facebook.com/pages/Heat-Cool-Service-Co/889280141128907" target="_blank" rel="noopener">Facebook</a>
+          <a href="https://www.twitter.com/HeatCoolCo" target="_blank" rel="noopener">Twitter / X</a>
+          <a href="https://www.yelp.com/biz/heatcool-service-chicago" target="_blank" rel="noopener">Yelp</a>
+        </div>
       </div>
       <div>
         <h4>Services</h4>
         <ul>
-          <li><a href="#services">Heating Repair</a></li>
-          <li><a href="#services">Cooling Repair</a></li>
-          <li><a href="#services">New Installations</a></li>
-          <li><a href="#services">Maintenance Plans</a></li>
-          <li><a href="#services">Financing</a></li>
+          <!-- Source: heatcool.net navigation — all services confirmed from site -->
+          <li><a href="https://www.heatcool.net/heating-repair/" target="_blank" rel="noopener">Heating Repair</a></li>
+          <li><a href="https://www.heatcool.net/air-conditioning-repair/" target="_blank" rel="noopener">AC Repair</a></li>
+          <li><a href="https://www.heatcool.net/high-rise-hvac-service/" target="_blank" rel="noopener">High Rise HVAC</a></li>
+          <li><a href="https://www.heatcool.net/boilers/" target="_blank" rel="noopener">Boilers</a></li>
+          <li><a href="https://www.heatcool.net/ductless-ac/" target="_blank" rel="noopener">Ductless AC</a></li>
+          <li><a href="https://www.heatcool.net/service-agreement/" target="_blank" rel="noopener">Service Club</a></li>
+          <li><a href="https://www.heatcool.net/financing/" target="_blank" rel="noopener">Financing</a></li>
         </ul>
       </div>
       <div>
         <h4>Contact</h4>
         <ul>
+          <!-- Source: heatcool.net and BBB — all confirmed -->
           <li><a href="tel:7735395225">(773) 539-5225</a></li>
-          <li><a href="mailto:info@heatcool.net">info@heatcool.net</a></li>
-          <li><a href="#story">Albany Park, Chicago IL 60625</a></li>
-          <li><a href="#contact">24/7 Emergency Service</a></li>
+          <li><span>4511 N Kedzie Ave</span></li>
+          <li><span>Chicago, IL 60625</span></li>
+          <li><span>Mon–Fri: 7:00 AM – 5:00 PM</span></li>
+          <li><span>Emergency: 24/7 · 365 Days</span></li>
+          <li><a href="https://www.heatcool.net/contact-us/" target="_blank" rel="noopener">Contact Form →</a></li>
         </ul>
       </div>
     </div>
     <div class="footer-bottom">
+      <!-- Source: heatcool.net financing page — "©2026 HeatCool Service Co." confirmed -->
       <p>© 2026 HeatCool Service Co. · Family Owned Since 1956 · All Rights Reserved</p>
-      <span class="bryant-badge">🏆 Bryant Factory Authorized Dealer</span>
+      <div class="footer-badges">
+        <span class="badge">🏆 Bryant Factory Authorized</span>
+        <span class="badge">✅ BBB Accredited · A+</span>
+        <span class="badge">🔧 NATE Certified</span>
+      </div>
     </div>
   </footer>
 
