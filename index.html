@@ -107,14 +107,19 @@
       gap: 16px;
       flex-wrap: wrap;
     }
+    @media (max-width: 600px) {
+      nav .wrap { justify-content: center; flex-direction: column; }
+    }
     .nav-logo img {
-      height: 50px;
+      height: 60px;
       width: auto;
+      max-width: 220px;
       display: block;
+      object-fit: contain;
     }
     .nav-logo-fallback {
       display: none;
-      font-size: 1.1rem;
+      font-size: 1.15rem;
       font-weight: 900;
       color: var(--navy);
     }
