@@ -27,23 +27,36 @@
     .topbar {
       background: var(--navy);
       color: white;
-      padding: 10px 24px;
+      padding: 8px 24px;
       display: flex;
       justify-content: space-between;
       align-items: center;
       flex-wrap: wrap;
-      gap: 8px;
-      font-size: 0.875rem;
+      gap: 6px;
+      font-size: 0.82rem;
     }
-    .topbar span { opacity: 0.9; }
-    .topbar a {
+    .topbar-left {
+      display: flex;
+      align-items: center;
+      gap: 18px;
+      opacity: 0.85;
+    }
+    .topbar-left span { white-space: nowrap; }
+    .topbar-right {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+    }
+    .topbar a.topbar-phone {
       color: var(--orange);
       text-decoration: none;
-      font-weight: 700;
-      font-size: 1.05rem;
-      letter-spacing: 0.5px;
+      font-weight: 800;
+      font-size: 0.95rem;
+      letter-spacing: 0.3px;
+      white-space: nowrap;
     }
-    .topbar a:hover { color: white; }
+    .topbar a.topbar-phone:hover { color: white; }
+    .topbar-divider { opacity: 0.3; }
 
     /* ── NAV ── */
     nav {
@@ -65,19 +78,26 @@
       gap: 12px;
     }
     .logo img {
-      height: 44px;
+      height: 52px;
       width: auto;
     }
-    .logo-text h1 {
-      font-size: 1.2rem;
+    /* Fallback logo mark shown when image fails */
+    .logo-mark-fallback {
+      display: none;
+      align-items: center;
+      gap: 10px;
+      font-size: 1.15rem;
+      font-weight: 900;
       color: var(--navy);
-      font-weight: 800;
-      line-height: 1.1;
+      letter-spacing: -0.5px;
     }
-    .logo-text p {
-      font-size: 0.72rem;
+    .logo-mark-fallback .flame { font-size: 1.5rem; }
+    .logo-mark-fallback .since {
+      display: block;
+      font-size: 0.65rem;
+      font-weight: 600;
       color: var(--gray);
-      letter-spacing: 1px;
+      letter-spacing: 1.5px;
       text-transform: uppercase;
     }
     .nav-links {
@@ -161,25 +181,27 @@
     .btn-primary {
       background: var(--red);
       color: white;
-      padding: 16px 32px;
-      border-radius: 8px;
+      padding: 14px 28px;
+      border-radius: 6px;
       text-decoration: none;
       font-weight: 800;
-      font-size: 1rem;
+      font-size: 0.95rem;
       transition: all 0.2s;
-      box-shadow: 0 4px 16px rgba(192,57,43,0.4);
+      box-shadow: 0 4px 14px rgba(192,57,43,0.45);
+      white-space: nowrap;
     }
     .btn-primary:hover { background: #a93226; transform: translateY(-2px); }
     .btn-secondary {
       background: transparent;
       color: white;
-      padding: 16px 32px;
-      border-radius: 8px;
+      padding: 14px 28px;
+      border-radius: 6px;
       text-decoration: none;
       font-weight: 700;
-      font-size: 1rem;
-      border: 2px solid rgba(255,255,255,0.4);
+      font-size: 0.95rem;
+      border: 2px solid rgba(255,255,255,0.45);
       transition: all 0.2s;
+      white-space: nowrap;
     }
     .btn-secondary:hover { border-color: white; background: rgba(255,255,255,0.1); }
 
@@ -572,24 +594,26 @@
     .btn-white {
       background: white;
       color: var(--red);
-      padding: 16px 32px;
-      border-radius: 8px;
+      padding: 14px 28px;
+      border-radius: 6px;
       text-decoration: none;
       font-weight: 800;
-      font-size: 1rem;
+      font-size: 0.95rem;
       transition: all 0.2s;
+      white-space: nowrap;
     }
     .btn-white:hover { background: var(--light); transform: translateY(-2px); }
     .btn-outline-white {
       background: transparent;
       color: white;
-      padding: 16px 32px;
-      border-radius: 8px;
+      padding: 14px 28px;
+      border-radius: 6px;
       text-decoration: none;
       font-weight: 700;
-      font-size: 1rem;
+      font-size: 0.95rem;
       border: 2px solid rgba(255,255,255,0.6);
       transition: all 0.2s;
+      white-space: nowrap;
     }
     .btn-outline-white:hover { border-color: white; background: rgba(255,255,255,0.1); }
 
@@ -689,20 +713,31 @@
   <!-- TOP BAR -->
   <!-- Source: heatcool.net — phone confirmed, address confirmed, "Since 1956" confirmed -->
   <div class="topbar">
-    <span>📍 4511 N Kedzie Ave, Chicago, IL 60625 · Family Owned Since 1956</span>
-    <a href="tel:7735395225">📞 (773) 539-5225</a>
+    <div class="topbar-left">
+      <span>📍 4511 N Kedzie Ave, Chicago, IL 60625</span>
+      <span class="topbar-divider">|</span>
+      <span>Mon–Fri 7AM–5PM</span>
+      <span class="topbar-divider">|</span>
+      <span>Family Owned Since 1956</span>
+    </div>
+    <div class="topbar-right">
+      <a href="tel:7735395225" class="topbar-phone">📞 (773) 539-5225</a>
+    </div>
   </div>
 
   <!-- NAV -->
   <nav>
     <div class="logo">
       <!-- Source: heatcool.net/wp-content/uploads/2017/03/heatcoollogo.png — real logo -->
-      <img src="images/heatcool-logo-old.png" alt="HeatCool Service Co logo" onerror="this.style.display='none'; this.nextElementSibling.style.display='flex'">
-      <div class="logo-icon" style="display:none; width:44px; height:44px; background:var(--navy); border-radius:8px; align-items:center; justify-content:center; color:var(--orange); font-size:1.4rem;">🔥</div>
-      <div class="logo-text">
-        <h1>HeatCool Service Co.</h1>
-        <!-- Source: heatcool.net history page — confirmed 1956 founding -->
-        <p>Family Owned · Since 1956</p>
+      <img src="images/heatcool-logo-old.png" alt="HeatCool Service Co"
+        onerror="this.style.display='none'; document.getElementById('logo-fallback').style.display='flex'">
+      <!-- Fallback when logo image not available -->
+      <div class="logo-mark-fallback" id="logo-fallback">
+        <span class="flame">🔥</span>
+        <div>
+          HeatCool Service Co.
+          <span class="since">Family Owned · Since 1956</span>
+        </div>
       </div>
     </div>
     <ul class="nav-links">
