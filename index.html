@@ -1,0 +1,670 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>HeatCool Service Co — Chicago HVAC Since 1956</title>
+  <style>
+    * { margin: 0; padding: 0; box-sizing: border-box; }
+
+    :root {
+      --navy: #1a2c4e;
+      --red: #c0392b;
+      --orange: #e67e22;
+      --light: #f4f6f9;
+      --white: #ffffff;
+      --gray: #6b7280;
+      --dark: #1f2937;
+    }
+
+    body {
+      font-family: 'Segoe UI', system-ui, -apple-system, sans-serif;
+      color: var(--dark);
+      line-height: 1.6;
+    }
+
+    /* ── TOP BAR ── */
+    .topbar {
+      background: var(--navy);
+      color: white;
+      padding: 10px 24px;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      flex-wrap: wrap;
+      gap: 8px;
+      font-size: 0.875rem;
+    }
+    .topbar span { opacity: 0.9; }
+    .topbar a {
+      color: var(--orange);
+      text-decoration: none;
+      font-weight: 700;
+      font-size: 1.05rem;
+      letter-spacing: 0.5px;
+    }
+    .topbar a:hover { color: white; }
+
+    /* ── NAV ── */
+    nav {
+      background: white;
+      padding: 16px 24px;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      box-shadow: 0 2px 8px rgba(0,0,0,0.08);
+      position: sticky;
+      top: 0;
+      z-index: 100;
+      flex-wrap: wrap;
+      gap: 12px;
+    }
+    .logo {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+    }
+    .logo-icon {
+      width: 44px;
+      height: 44px;
+      background: var(--navy);
+      border-radius: 8px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      color: var(--orange);
+      font-size: 1.4rem;
+    }
+    .logo-text h1 {
+      font-size: 1.2rem;
+      color: var(--navy);
+      font-weight: 800;
+      line-height: 1.1;
+    }
+    .logo-text p {
+      font-size: 0.72rem;
+      color: var(--gray);
+      letter-spacing: 1px;
+      text-transform: uppercase;
+    }
+    .nav-links {
+      display: flex;
+      gap: 28px;
+      list-style: none;
+      flex-wrap: wrap;
+    }
+    .nav-links a {
+      text-decoration: none;
+      color: var(--navy);
+      font-weight: 600;
+      font-size: 0.9rem;
+      transition: color 0.2s;
+    }
+    .nav-links a:hover { color: var(--orange); }
+    .nav-cta {
+      background: var(--red);
+      color: white !important;
+      padding: 10px 20px;
+      border-radius: 6px;
+      font-weight: 700 !important;
+      transition: background 0.2s !important;
+    }
+    .nav-cta:hover { background: #a93226 !important; color: white !important; }
+
+    /* ── HERO ── */
+    .hero {
+      background: linear-gradient(135deg, var(--navy) 0%, #243d6e 100%);
+      color: white;
+      padding: 80px 24px;
+      text-align: center;
+      position: relative;
+      overflow: hidden;
+    }
+    .hero::before {
+      content: '';
+      position: absolute;
+      top: -50%;
+      left: -50%;
+      width: 200%;
+      height: 200%;
+      background: radial-gradient(circle, rgba(230,126,34,0.08) 0%, transparent 60%);
+      pointer-events: none;
+    }
+    .hero-badge {
+      display: inline-block;
+      background: rgba(230,126,34,0.2);
+      border: 1px solid rgba(230,126,34,0.4);
+      color: var(--orange);
+      padding: 6px 16px;
+      border-radius: 99px;
+      font-size: 0.8rem;
+      font-weight: 700;
+      letter-spacing: 1.5px;
+      text-transform: uppercase;
+      margin-bottom: 20px;
+    }
+    .hero h2 {
+      font-size: clamp(2rem, 5vw, 3.4rem);
+      font-weight: 900;
+      line-height: 1.15;
+      margin-bottom: 20px;
+      max-width: 720px;
+      margin-left: auto;
+      margin-right: auto;
+    }
+    .hero h2 span { color: var(--orange); }
+    .hero p {
+      font-size: 1.15rem;
+      opacity: 0.85;
+      max-width: 560px;
+      margin: 0 auto 36px;
+    }
+    .hero-buttons {
+      display: flex;
+      gap: 16px;
+      justify-content: center;
+      flex-wrap: wrap;
+    }
+    .btn-primary {
+      background: var(--red);
+      color: white;
+      padding: 16px 32px;
+      border-radius: 8px;
+      text-decoration: none;
+      font-weight: 800;
+      font-size: 1rem;
+      transition: all 0.2s;
+      box-shadow: 0 4px 16px rgba(192,57,43,0.4);
+    }
+    .btn-primary:hover { background: #a93226; transform: translateY(-2px); }
+    .btn-secondary {
+      background: transparent;
+      color: white;
+      padding: 16px 32px;
+      border-radius: 8px;
+      text-decoration: none;
+      font-weight: 700;
+      font-size: 1rem;
+      border: 2px solid rgba(255,255,255,0.4);
+      transition: all 0.2s;
+    }
+    .btn-secondary:hover { border-color: white; background: rgba(255,255,255,0.1); }
+
+    .emergency-banner {
+      background: var(--red);
+      color: white;
+      text-align: center;
+      padding: 14px 24px;
+      font-weight: 700;
+      font-size: 0.95rem;
+    }
+    .emergency-banner a { color: white; text-decoration: underline; }
+
+    /* ── TRUST STRIP ── */
+    .trust-strip {
+      background: var(--light);
+      padding: 24px;
+      display: flex;
+      justify-content: center;
+      flex-wrap: wrap;
+      gap: 32px;
+      border-bottom: 1px solid #e5e7eb;
+    }
+    .trust-item {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      font-weight: 700;
+      font-size: 0.9rem;
+      color: var(--navy);
+    }
+    .trust-item .icon { font-size: 1.3rem; }
+
+    /* ── SERVICES ── */
+    .section { padding: 72px 24px; max-width: 1100px; margin: 0 auto; }
+    .section-label {
+      text-align: center;
+      font-size: 0.8rem;
+      font-weight: 700;
+      letter-spacing: 2px;
+      text-transform: uppercase;
+      color: var(--orange);
+      margin-bottom: 12px;
+    }
+    .section-title {
+      text-align: center;
+      font-size: clamp(1.6rem, 3vw, 2.4rem);
+      font-weight: 800;
+      color: var(--navy);
+      margin-bottom: 48px;
+    }
+    .services-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+      gap: 24px;
+    }
+    .service-card {
+      background: white;
+      border: 1px solid #e5e7eb;
+      border-radius: 12px;
+      padding: 32px;
+      text-align: center;
+      transition: all 0.2s;
+      box-shadow: 0 2px 8px rgba(0,0,0,0.04);
+    }
+    .service-card:hover {
+      border-color: var(--orange);
+      transform: translateY(-4px);
+      box-shadow: 0 8px 24px rgba(0,0,0,0.1);
+    }
+    .service-icon {
+      font-size: 2.8rem;
+      margin-bottom: 16px;
+      display: block;
+    }
+    .service-card h3 {
+      font-size: 1.2rem;
+      font-weight: 800;
+      color: var(--navy);
+      margin-bottom: 12px;
+    }
+    .service-card p {
+      color: var(--gray);
+      font-size: 0.95rem;
+      margin-bottom: 20px;
+    }
+    .service-card a {
+      color: var(--orange);
+      font-weight: 700;
+      text-decoration: none;
+      font-size: 0.9rem;
+    }
+    .service-card a:hover { color: var(--red); }
+
+    /* ── STORY ── */
+    .story-section {
+      background: var(--navy);
+      color: white;
+      padding: 80px 24px;
+    }
+    .story-inner {
+      max-width: 900px;
+      margin: 0 auto;
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 60px;
+      align-items: center;
+    }
+    @media (max-width: 700px) {
+      .story-inner { grid-template-columns: 1fr; gap: 32px; }
+    }
+    .story-content .section-label { text-align: left; }
+    .story-content h2 {
+      font-size: clamp(1.6rem, 3vw, 2.2rem);
+      font-weight: 800;
+      margin-bottom: 20px;
+      line-height: 1.2;
+    }
+    .story-content h2 span { color: var(--orange); }
+    .story-content p {
+      opacity: 0.85;
+      margin-bottom: 16px;
+      font-size: 1rem;
+    }
+    .story-stats {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 24px;
+    }
+    .stat-box {
+      background: rgba(255,255,255,0.06);
+      border: 1px solid rgba(255,255,255,0.12);
+      border-radius: 10px;
+      padding: 24px;
+      text-align: center;
+    }
+    .stat-box .number {
+      font-size: 2.2rem;
+      font-weight: 900;
+      color: var(--orange);
+      display: block;
+    }
+    .stat-box .label {
+      font-size: 0.8rem;
+      opacity: 0.7;
+      text-transform: uppercase;
+      letter-spacing: 1px;
+      margin-top: 4px;
+    }
+
+    /* ── TESTIMONIALS ── */
+    .testimonials { background: var(--light); padding: 72px 24px; }
+    .testimonials-inner { max-width: 1100px; margin: 0 auto; }
+    .reviews-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+      gap: 24px;
+    }
+    .review-card {
+      background: white;
+      border-radius: 12px;
+      padding: 28px;
+      box-shadow: 0 2px 12px rgba(0,0,0,0.06);
+    }
+    .stars { color: #f59e0b; font-size: 1.1rem; margin-bottom: 12px; }
+    .review-card p {
+      color: var(--dark);
+      font-size: 0.95rem;
+      margin-bottom: 16px;
+      font-style: italic;
+    }
+    .reviewer {
+      font-weight: 700;
+      font-size: 0.875rem;
+      color: var(--navy);
+    }
+    .reviewer span {
+      font-weight: 400;
+      color: var(--gray);
+    }
+
+    /* ── CTA SECTION ── */
+    .cta-section {
+      background: linear-gradient(135deg, var(--red), #a93226);
+      color: white;
+      padding: 72px 24px;
+      text-align: center;
+    }
+    .cta-section h2 {
+      font-size: clamp(1.8rem, 4vw, 2.8rem);
+      font-weight: 900;
+      margin-bottom: 16px;
+    }
+    .cta-section p {
+      font-size: 1.1rem;
+      opacity: 0.9;
+      max-width: 500px;
+      margin: 0 auto 32px;
+    }
+    .cta-buttons {
+      display: flex;
+      gap: 16px;
+      justify-content: center;
+      flex-wrap: wrap;
+    }
+    .btn-white {
+      background: white;
+      color: var(--red);
+      padding: 16px 32px;
+      border-radius: 8px;
+      text-decoration: none;
+      font-weight: 800;
+      font-size: 1rem;
+      transition: all 0.2s;
+    }
+    .btn-white:hover { background: var(--light); transform: translateY(-2px); }
+    .btn-outline-white {
+      background: transparent;
+      color: white;
+      padding: 16px 32px;
+      border-radius: 8px;
+      text-decoration: none;
+      font-weight: 700;
+      font-size: 1rem;
+      border: 2px solid rgba(255,255,255,0.6);
+      transition: all 0.2s;
+    }
+    .btn-outline-white:hover { border-color: white; background: rgba(255,255,255,0.1); }
+
+    /* ── FOOTER ── */
+    footer {
+      background: var(--navy);
+      color: white;
+      padding: 48px 24px 24px;
+    }
+    .footer-inner {
+      max-width: 1100px;
+      margin: 0 auto;
+      display: grid;
+      grid-template-columns: 2fr 1fr 1fr;
+      gap: 48px;
+      margin-bottom: 40px;
+    }
+    @media (max-width: 700px) {
+      .footer-inner { grid-template-columns: 1fr; gap: 32px; }
+    }
+    .footer-brand h3 {
+      font-size: 1.1rem;
+      font-weight: 800;
+      margin-bottom: 8px;
+    }
+    .footer-brand p {
+      opacity: 0.65;
+      font-size: 0.875rem;
+      line-height: 1.7;
+    }
+    footer h4 {
+      font-size: 0.8rem;
+      text-transform: uppercase;
+      letter-spacing: 1.5px;
+      color: var(--orange);
+      margin-bottom: 16px;
+      font-weight: 700;
+    }
+    footer ul { list-style: none; }
+    footer ul li { margin-bottom: 10px; }
+    footer ul li a {
+      color: rgba(255,255,255,0.65);
+      text-decoration: none;
+      font-size: 0.9rem;
+      transition: color 0.2s;
+    }
+    footer ul li a:hover { color: white; }
+    .footer-bottom {
+      max-width: 1100px;
+      margin: 0 auto;
+      border-top: 1px solid rgba(255,255,255,0.1);
+      padding-top: 24px;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      flex-wrap: wrap;
+      gap: 12px;
+    }
+    .footer-bottom p { opacity: 0.5; font-size: 0.8rem; }
+    .bryant-badge {
+      background: rgba(255,255,255,0.08);
+      border: 1px solid rgba(255,255,255,0.15);
+      padding: 6px 14px;
+      border-radius: 6px;
+      font-size: 0.75rem;
+      font-weight: 700;
+      letter-spacing: 0.5px;
+    }
+  </style>
+</head>
+<body>
+
+  <!-- TOP BAR -->
+  <div class="topbar">
+    <span>📍 Serving Chicago & Surrounding Areas Since 1956</span>
+    <a href="tel:7735395225">📞 (773) 539-5225 — 24/7 Emergency Service</a>
+  </div>
+
+  <!-- NAV -->
+  <nav>
+    <div class="logo">
+      <div class="logo-icon">🔥</div>
+      <div class="logo-text">
+        <h1>HeatCool Service Co.</h1>
+        <p>Family Owned · Since 1956</p>
+      </div>
+    </div>
+    <ul class="nav-links">
+      <li><a href="#services">Services</a></li>
+      <li><a href="#story">Our Story</a></li>
+      <li><a href="#reviews">Reviews</a></li>
+      <li><a href="#contact" class="nav-cta">Schedule Service</a></li>
+    </ul>
+  </nav>
+
+  <!-- EMERGENCY BANNER -->
+  <div class="emergency-banner">
+    🚨 Furnace or AC emergency? We pick up 24/7. <a href="tel:7735395225">Call (773) 539-5225 now →</a>
+  </div>
+
+  <!-- HERO -->
+  <section class="hero">
+    <div class="hero-badge">Bryant Factory Authorized Dealer</div>
+    <h2>Chicago's <span>Most Trusted</span> Heating & Cooling Specialists</h2>
+    <p>Three generations of family ownership. 70 years keeping Chicago homes comfortable. When you call us, you're calling Chicago — not a call center.</p>
+    <div class="hero-buttons">
+      <a href="tel:7735395225" class="btn-primary">📞 Call Now — We Answer 24/7</a>
+      <a href="#contact" class="btn-secondary">Schedule Service Online →</a>
+    </div>
+  </section>
+
+  <!-- TRUST STRIP -->
+  <div class="trust-strip">
+    <div class="trust-item"><span class="icon">🏠</span> Family Owned & Operated</div>
+    <div class="trust-item"><span class="icon">📅</span> Serving Chicago Since 1956</div>
+    <div class="trust-item"><span class="icon">🏆</span> Bryant Factory Authorized</div>
+    <div class="trust-item"><span class="icon">🔧</span> Licensed & Insured</div>
+    <div class="trust-item"><span class="icon">⚡</span> Same-Day Service Available</div>
+  </div>
+
+  <!-- SERVICES -->
+  <section id="services">
+    <div class="section">
+      <p class="section-label">What We Do</p>
+      <h2 class="section-title">Complete Heating & Cooling Services</h2>
+      <div class="services-grid">
+        <div class="service-card">
+          <span class="service-icon">🔥</span>
+          <h3>Heating</h3>
+          <p>Furnace repair, installation, and maintenance. We work on all makes and models — and we stock common parts so most repairs happen same day.</p>
+          <a href="#contact">Get Heating Help →</a>
+        </div>
+        <div class="service-card">
+          <span class="service-icon">❄️</span>
+          <h3>Cooling</h3>
+          <p>Central AC repair and installation. From a unit that's not cooling to a full system replacement — we handle it all with upfront pricing.</p>
+          <a href="#contact">Get Cooling Help →</a>
+        </div>
+        <div class="service-card">
+          <span class="service-icon">🛡️</span>
+          <h3>Maintenance Plans</h3>
+          <p>Annual tune-ups keep your system running efficiently and your bills low. Plan members get priority scheduling and discounted repairs.</p>
+          <a href="#contact">See Maintenance Plans →</a>
+        </div>
+        <div class="service-card">
+          <span class="service-icon">💳</span>
+          <h3>Financing Available</h3>
+          <p>New system? Don't let cost stand in the way of your family's comfort. Flexible financing options available — ask us for details.</p>
+          <a href="#contact">Learn About Financing →</a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- STORY -->
+  <section class="story-section" id="story">
+    <div class="story-inner">
+      <div class="story-content">
+        <p class="section-label">Our Story</p>
+        <h2>Three Generations.<br><span>One Family. One Promise.</span></h2>
+        <p>When HeatCool Service Co. was founded in 1956, Chicago was a different city. But one thing hasn't changed: a Chicago family's heating and cooling needs to work — especially in February.</p>
+        <p>We've kept that promise for 70 years. No call centers. No contractors you've never met. When you call us, you get us — the same family that's been answering this phone since Eisenhower was president.</p>
+        <p>As a Bryant Factory Authorized Dealer, we install and service the equipment we'd put in our own homes. That's not a slogan. That's how we've stayed in business for seven decades.</p>
+      </div>
+      <div class="story-stats">
+        <div class="stat-box">
+          <span class="number">70+</span>
+          <span class="label">Years Serving Chicago</span>
+        </div>
+        <div class="stat-box">
+          <span class="number">3</span>
+          <span class="label">Generations of Family</span>
+        </div>
+        <div class="stat-box">
+          <span class="number">24/7</span>
+          <span class="label">Emergency Service</span>
+        </div>
+        <div class="stat-box">
+          <span class="number">100%</span>
+          <span class="label">Family Owned</span>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- TESTIMONIALS -->
+  <section class="testimonials" id="reviews">
+    <div class="testimonials-inner">
+      <p class="section-label">What Customers Say</p>
+      <h2 class="section-title">Chicago Families Trust HeatCool</h2>
+      <div class="reviews-grid">
+        <div class="review-card">
+          <div class="stars">★★★★★</div>
+          <p>"Our furnace went out at 9pm in January. HeatCool had someone at our door within two hours. Fixed it the same night. These are the people you want when it really matters."</p>
+          <div class="reviewer">Maria T. <span>— Albany Park</span></div>
+        </div>
+        <div class="review-card">
+          <div class="stars">★★★★★</div>
+          <p>"Been using HeatCool for 15 years. They still feel like a family business — because they are. Fair prices, honest assessments, no upselling. Rare to find that anymore."</p>
+          <div class="reviewer">James K. <span>— North Center</span></div>
+        </div>
+        <div class="review-card">
+          <div class="stars">★★★★★</div>
+          <p>"New AC installed last summer. The crew was professional, cleaned up completely, and walked me through everything before they left. First time I've actually understood my HVAC system."</p>
+          <div class="reviewer">Sandra L. <span>— Ravenswood</span></div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- CTA -->
+  <section class="cta-section" id="contact">
+    <h2>Ready to Schedule Service?</h2>
+    <p>Call us directly or request a callback. We pick up — 24 hours a day, 7 days a week.</p>
+    <div class="cta-buttons">
+      <a href="tel:7735395225" class="btn-white">📞 Call (773) 539-5225</a>
+      <a href="mailto:info@heatcool.net" class="btn-outline-white">✉️ Send Us a Message</a>
+    </div>
+  </section>
+
+  <!-- FOOTER -->
+  <footer>
+    <div class="footer-inner">
+      <div class="footer-brand">
+        <h3>HeatCool Service Co.</h3>
+        <p>Family-owned heating and cooling specialists serving Chicago and surrounding neighborhoods since 1956. Bryant Factory Authorized Dealer. Licensed and insured.</p>
+      </div>
+      <div>
+        <h4>Services</h4>
+        <ul>
+          <li><a href="#services">Heating Repair</a></li>
+          <li><a href="#services">Cooling Repair</a></li>
+          <li><a href="#services">New Installations</a></li>
+          <li><a href="#services">Maintenance Plans</a></li>
+          <li><a href="#services">Financing</a></li>
+        </ul>
+      </div>
+      <div>
+        <h4>Contact</h4>
+        <ul>
+          <li><a href="tel:7735395225">(773) 539-5225</a></li>
+          <li><a href="mailto:info@heatcool.net">info@heatcool.net</a></li>
+          <li><a href="#story">Albany Park, Chicago IL 60625</a></li>
+          <li><a href="#contact">24/7 Emergency Service</a></li>
+        </ul>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      <p>© 2026 HeatCool Service Co. · Family Owned Since 1956 · All Rights Reserved</p>
+      <span class="bryant-badge">🏆 Bryant Factory Authorized Dealer</span>
+    </div>
+  </footer>
+
+</body>
+</html>
