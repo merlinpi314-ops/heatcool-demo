@@ -302,8 +302,11 @@
       gap: 60px; align-items: center;
     }
     @media (max-width: 820px) {
+      .hero { padding: clamp(56px, 10vw, 90px) 0; }
       .hero .container { grid-template-columns: 1fr; }
-      .hero-right { display: none; }
+      .hero-right { display: none !important; }
+      .hero h1 { font-size: clamp(2.2rem, 8vw, 3rem); }
+      .hero-sub { font-size: 0.93rem; margin-bottom: 28px; }
     }
     .hero-left { max-width: 580px; }
     .hero-family-tag {
@@ -407,7 +410,9 @@
     .trust-item:hover { background: rgba(255,255,255,0.04); }
     .trust-item .ti { font-size: 1.2rem; flex-shrink: 0; }
     @media (max-width: 768px) {
-      .trust-item { border-right: none; border-bottom: 1px solid rgba(255,255,255,0.08); width: 50%; justify-content: center; }
+      .trust-bar .container { flex-direction: column; align-items: stretch; gap: 0; }
+      .trust-item { border-right: none; border-bottom: 1px solid rgba(255,255,255,0.08); width: 100%; justify-content: flex-start; padding: 14px 20px; }
+      .trust-item:last-child { border-bottom: none; }
     }
 
     /* ══════════════════════════════════════════
@@ -790,6 +795,33 @@
     }
 
     /* ══════════════════════════════════════════
+       STICKY MOBILE CALL BAR
+    ══════════════════════════════════════════ */
+    .mobile-cta-bar {
+      display: none;
+      position: fixed; bottom: 0; left: 0; right: 0; z-index: 9999;
+      background: var(--navy-d);
+      border-top: 2px solid var(--orange);
+      padding: 10px 16px;
+      gap: 10px;
+    }
+    .mobile-cta-bar a {
+      flex: 1; display: flex; align-items: center; justify-content: center;
+      gap: 7px; padding: 13px 10px;
+      border-radius: 8px;
+      font-size: 0.85rem; font-weight: 800;
+      white-space: nowrap; transition: all 0.15s;
+    }
+    .mobile-cta-call { background: var(--red); color: var(--white); }
+    .mobile-cta-call:hover { background: var(--red-d); }
+    .mobile-cta-schedule { background: rgba(255,255,255,0.08); color: var(--white); border: 1.5px solid rgba(255,255,255,0.2); }
+    .mobile-cta-schedule:hover { background: rgba(255,255,255,0.14); }
+    @media (max-width: 820px) {
+      .mobile-cta-bar { display: flex; }
+      body { padding-bottom: 70px; }
+    }
+
+    /* ══════════════════════════════════════════
        JS ACCORDION
     ══════════════════════════════════════════ */
     .svc-tab { cursor: pointer; }
@@ -881,6 +913,12 @@
   <div class="emergency-bar">
     🚨 Heating or AC emergency? We answer <strong>24 hours a day, 365 days a year.</strong>
     <a href="tel:7735395225"> Call (773) 539-5225 now →</a>
+  </div>
+
+  <!-- ── STICKY MOBILE CALL BAR ── -->
+  <div class="mobile-cta-bar">
+    <a href="tel:7735395225" class="mobile-cta-call">📞 Call Now</a>
+    <a href="https://www.heatcool.net/contact-us/" target="_blank" class="mobile-cta-schedule">✉️ Schedule Online</a>
   </div>
 
   <!-- ── HERO ── -->
